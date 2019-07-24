@@ -75,7 +75,7 @@ object Build extends AutoPlugin {
     if (isTravis) {
       version := s"7.1.0.$travisBuildNumber-SNAPSHOT"
     } else {
-      version := "7.1.0"
+      version := "7.1.0-MDG"
     },
     publishTo := {
       val nexus = "https://oss.sonatype.org/"
