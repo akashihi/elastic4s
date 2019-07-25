@@ -42,7 +42,7 @@ object Build extends AutoPlugin {
 
   override def projectSettings: Seq[Def.Setting[_]] = Seq(
     organization := org,
-    scalaVersion := "2.11.12",
+    scalaVersion := "2.12.8",
     crossScalaVersions := Seq("2.11.12", "2.12.8", "2.13.0"),
     publishMavenStyle := true,
     resolvers += Resolver.mavenLocal,
@@ -72,11 +72,7 @@ object Build extends AutoPlugin {
       "org.mockito" % "mockito-core" % MockitoVersion % "test",
       "org.scalatest" %% "scalatest" % ScalatestVersion % "test"
     ),
-    if (isTravis) {
-      version := s"7.1.0.$travisBuildNumber-SNAPSHOT"
-    } else {
-      version := "7.1.0-MDG"
-    },
+      version := "7.1.0-MDG",
     publishTo := {
       val nexus = "https://oss.sonatype.org/"
       if (version.value.trim.endsWith("SNAPSHOT"))
